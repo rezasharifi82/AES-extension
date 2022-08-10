@@ -17,7 +17,7 @@ _______________________________________________
 
 
 
-## Screen shots:
+## Screenshot:
 
 ![Screen](https://github.com/rezasharifi82/AES-extension/blob/main/image.png)
 
