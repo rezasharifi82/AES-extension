@@ -58,26 +58,30 @@ import javax.crypto.spec.SecretKeySpec;
 @SimpleObject(external = true)
 
 
-public class AES_extension extends AndroidNonvisibleComponent implements Component {
+public class MareshaAES extends AndroidNonvisibleComponent implements Component {
 public static final int VERSION = 1;
 private ComponentContainer container;
 private Context context;
 private static final String LOG_TAG = "";
 
- public AES_extension(ComponentContainer container) {
+ public MareshaAES(ComponentContainer container) {
     super(container.$form());
     this.container = container;
     context = (Context) container.$context();
     Log.d(LOG_TAG, "Maresha" );
 }
 @SimpleFunction(description = "Encrypt arbitrary string via AES")
-public String AES_Encrypt(String text,String salt,String secret){
+public String AESEncrypt(String text,String salt,String secret){
     return AES.encrypt(text,salt, secret);
 
    }
 @SimpleFunction(description = "Decrypt arbitrary string via AES")
-public String AES_Decrypt(String text,String salt,String secret){
+public String AESDecrypt(String text,String salt,String secret){
     return AES.decrypt(text,salt, secret);
+    }
+@SimpleFunction(description = "Generate SALT")
+public String Salt(String secret){
+    return AES.encrypt("Default text hust in case ","Non default salt forexample",secret);
     }
 
 
@@ -86,6 +90,8 @@ public static final class AES {
     
 
     // Encrypt method
+
+
 
 
     public static String encrypt(String strToEncrypt,final String SALT,final String SECRET_KEY)
@@ -174,3 +180,12 @@ public static final class AES {
 
 
 // Thanks
+
+
+/// Please change the file name if you wanna compile
+
+
+
+
+
+
